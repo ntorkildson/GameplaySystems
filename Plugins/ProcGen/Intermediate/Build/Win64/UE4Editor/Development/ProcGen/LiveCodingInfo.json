@@ -1,0 +1,19 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.ProcGen.cpp.obj": [
+			"CellularAutomata.cpp.obj",
+			"GridHelper.cpp.obj",
+			"MarkovChain.cpp.obj",
+			"ProcGen.cpp.obj",
+			"ProcGenBPLibrary.cpp.obj"
+		],
+		"Module.ProcGen.gen.cpp.obj": [
+			"CellularAutomata.gen.cpp.obj",
+			"GridHelper.gen.cpp.obj",
+			"MarkovChain.gen.cpp.obj",
+			"ProcGen.init.gen.cpp.obj",
+			"ProcGenBPLibrary.gen.cpp.obj"
+		]
+	}
+}

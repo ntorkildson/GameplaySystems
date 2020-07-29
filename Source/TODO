@@ -1,0 +1,531 @@
+showdebug gameplayabilities 
+
+
+Create actual plugin library
+
+MOVE EVERYTHING INTO A PLUGIN OR MOVE EVERYTHING OUT..STOP BEING AN IDIOT
+
+-grid system, 2d and 3d volumes allowed
+-kernels to parse through grids/volumes/neural networks
+-L-systems
+-cellular automata
+-diffuse limited aggregation
+-wave function collapse
+-neural network
+    -neuron
+    -neural network generation
+ 
+-genetic algorithm 
+    -crossover
+    -selectiontypes
+    -mutation
+-tree generation(whatever its called
+-deformation algorithms
+    -erosion
+    -wind
+ 
+-boids(?)
+
+-markov chains
+    -ngrams
+    -split grammers
+    -S/A/P system
+    -GOAP
+    -UtilityAI
+-noise functions(necessary? idk)
+    -voronoi
+    -etc...
+
+-convert array to bitmap type
+
+
+ProcGenLibrary:
+    -Bitmap/Landscape file accessor file helpers
+    
+    -cellular automata - 
+    waveFunctioncollapse - mesh building maybe? idk cool algorithm anyway
+    NEAT - neural networks and genetic algorithms are aweome and fun
+    diffuse limited aggregation
+    Grid Class - get/set accessors for 1D array but act like a 2D or 3D array
+            -get neighbors around grid
+            -other things ?
+             idk
+    L-System
+        -FInish and figure out a good way to build objects with it, should be able to build geometry and also access the bitmap generation
+        
+TODO: 
+Create Rock/Tree/Plant/whatever actor with GAS system enabled
+    -grant resources
+    -be destroyed and respawn
+
+    
+multiple targeting effects on a single weapon needs to work....
+animation blueprint/procedural
+
+weapons/items/abilities are actual objects, everything else is a currency
+
+
+//for every ability and targeting data in the container
+//create new targets from the container[i] type
+//if we have new targets
+//get all the hit result information
+//add the hit results to the target data
+
+
+open world game with tower defense and base building
+-generate an island
+-generate biomes?
+    -master material will be a bitch I think...
+-generate objects to destroy and grant resources
+    -stone
+    -thatch
+    -wood
+    -fiber
+-harvest system
+    -on hit->deal damage->grant currency(wood/rock/whatever)
+    ->destroy on death
+    ->drop or grant resources?
+    
+    
+        
+-generate structure building
+-generate item crafting
+
+
+
+
+GameplayAbilityCue for effects
+    -GameplayAbility must trigger the CUE apparently
+Projectile/SpawnActor System
+    -spawn projectiles for weapons and for buildings
+
+
+    
+Movementsystem(how can we do this...hmm)
+    -parkour system
+        -slide forward 
+        -dodge left/right
+        -vault over walls
+        -climb fences/ladders/etc..
+
+        
+Building System
+    -use resources to craft building pieces
+    -spawn actors in locations
+    -place buildings and calculate physics?
+    
+Crafting System
+    -use resources player has
+    -add new item to inventory or add new resource to resources
+    
+AI enemies/ Pets / NPCs / uhhh....
+    -tower defense constant stream AI
+    -wander AI for pets/NPCs
+    -smart AI for 'fun characters'
+    -boss AI or something
+    -pet AI for controlling pets
+
+
+showdebug gameplayabilities
+     
+    weapon ammo system or something to that effect
+    pass GE_Effect UI Data to actual UI system
+    Create NewGameplayModMagnitudeCalculation system for custom damage calculations
+    Weapon stats and randomized values for each of them that are passed to gameplay system
+    
+
+Activated abilities for crafting stations   
+    on 'interact' 
+        -open crafting table UI
+        -each button will grant the player the ability providing the resources are created
+        -craft item
+            -check for resources
+            -either spawn new item or add new resources to inventory
+            -two inventories is awkward....
+            
+    on close
+        -remove abilities from player
+        -remove UI
+        
+
+
+Projectile:
+    GameplayAbility:
+        -make gameplayabilityTargetLocationInfo
+            -WaitTargetData(passes a target actor class)
+                ValidData->CommitAbility
+                    Make outgoing gameplayEffect spec
+                       S pawnActor on server(the bp actor has the damage effect spec handle passed into it)
+    ProjectileBPClass                   
+        On Collision/Overlap/whatever
+            -apply gameplay effects to target(s)          
+                       
+projectile spawning gameplay ability
+    Projectile:
+        -should interface with the GAS 
+        -damage and tracking and all that
+        -
+    Building:
+        -deferred spawning most likely
+        -has to do collision checks before spawning
+        -should 'grow' quickly and push people out of the way as well?
+        -should be stored in rama save system
+        
+targeting system working
+    -quicly and intuitively select/deselect targets to interact with
+    
+
+Movement system:
+    -dodge 
+        -slide to the left/right intuitively
+        -should it be automatic as well?
+        -
+    -parry
+        -automatic and toggleable?
+        - destroys incoming projectiles and reverts the direction
+        -traces are more obnoxious
+    -roll
+        -dodge but with a roll, gives better(?) defenses
+    -dash/dive
+        -faster dodge, highest defenses, lowers defenses for a short time after 
+    -sprint
+        -working, just shitty
+    -slide
+        -crouch + keep velocity
+        
+    -parkour
+        -climb
+            -ladder climbing
+            -wall climbing like a spider or rock climber person thingy
+            -whatever else you can climb
+        -wall run
+        
+        -slide under
+
+Fun Weapons:
+    -grappling hook(like batman/spiderman)
+    -
+   
+
+
+
+
+initial gameplay is like hots or is a survival game or risk of rain or what?
+    
+
+
+
+
+dodge/parry/roll
+    -play animation or something like that
+    -set gameplayTag->dodging
+block   ->set gameplayTag
+melee   ->needs to be a good melee system
+    -blocking/parrying
+    -fluid combat
+    -dodging
+
+
+                                    
+
+Weapons:
+    Object/Projectile spawning
+        -rockets and building system
+        -stat modification (sprint, jump, slow,etc.)
+    -targeting system
+        -select actor to fire at/cancel selection
+            -update aim direction to that character
+           -homing projectiles?
+    -trace and projectile system
+    
+
+
+use action point system for movement
+    -resets every whatever timeframe ?
+    -once action points are out, you must walk 
+    
+
+Global ToDo overview:
+    -movement system                -ongoing
+    -stat finalizing                -definitely ongoing
+    -build system                   -soon
+    -status effect gameplayCue      -could do quickly
+    -OnDeath respawn and effects    -ongoing
+    -Effect system for audio and visual effects
+    -Crafting system
+    -AI
+
+
+Targeting system:
+    -select target and thats who you fire at, similar to overwatch healer guy
+
+
+   
+Gameplayability
+    -ActiveAbility
+        -setup targeting system before commit ability
+        -GEsystem->makeoutgoinggameplayeffectspec
+        ->assign tag set by caller magnitude
+        ->spawn projectile on server
+    deferred Spawn actor from class
+ProjectileClass
+    -On Overlap for damage
+        -for every overlap character
+        -get the characters ability system
+            for each gameplayeffect
+            -apply gameplayeffectpectoself
+    
+ 
+-Damage GameplayEffect
+    executes damage calculation
+    
+Ranged weapon ability
+    -single projectile
+        - basic shot for most abilities
+    -multiple projectiles
+        -li ming missles
+        -genji shuriken
+
+
+    
+
+City based zone 'warfare'
+Moba based combat with different city zones being the different maps
+tower defense you own zone to secure it
+    each zone is a city block or two?
+
+
+	//DiffuseLimitedAggregation
+
+	//CellularAutanata
+		//Some Rules for it
+	
+	//Erosion algorithm(s)
+
+	//boids
+
+	//Lsystems
+
+	//WaveFunctionCollapse
+
+	//markovChain
+
+	//voronoi and other noise functions
+
+	//split grammers
+	
+	
+THE CITY
+    -build out road scale
+    -building scale
+        -street level shop scale
+        road scale
+            -single/double/triple lane road? or just one size fits all
+            
+        -big apartment buildings
+            -level streaming volumes : https://docs.unrealengine.com/en-US/Engine/LevelStreaming/HowTo/StreamWithVolumes/index.html
+        -    
+    -walls are used to generate map bounds, very district 13 sort of thing
+
+
+Camera
+    -Cinematic camera for use on a character?
+    
+
+Lighting
+    -atmosphere
+    -clouds?
+    -best setup for cinematic dyanmic lighting
+
+
+Interfaces and UI blockout today:
+    -create UInterfaces to update health and stats that we can call in the UI
+        -finalize and implement some physical stats        
+        -inventoryUpdate
+        - equipped items update/unequip properly
+            -scrap item    
+    Crafting UI
+        -craft foundation
+                floor
+                walls
+                half height walls
+                wall with window
+                ceiling
+                    flat angle and 45 degrees?
+                    
+                turrets
+                    -turret to spawn
+                    -gameplay ability to give it
+                    -team its on/not allowed to attack
+                    -health/stats/etc.
+                    -needs AI
+ 
+
+            
+UI System
+    CharacterScreen
+        -show attributes
+        -show currency
+        -show equipped items
+        -show inventory
+        -potions/quick consumables
+
+          
+       
+   -OnDeath drop items
+        -target drops experience
+            -Create ExperienceDrop
+        -currency items
+            -wood/stone
+        -usable items
+            -weapons/armor
+    -Actors hit should be able to be rocks and trees and shit like that
+    -Custom damage type for these items, slashing/impact deals more damage and allows for more resources?
+
+    
+    
+
+create build system 
+    -foundation 
+        -targetd locations to either snap NESW or Top/Bottom of foundation mesh
+        -walls snap to wall locations
+        -ceilings are stupid but we shall do those too
+    -Towers
+        -build on foundations? 
+    -use cost system
+        -check ark/ 7d2d / dont start/ etc...
+        
+    -use attribute damage system
+
+
+
+create dumb AI
+    -walk towards base
+    -attack walls/turrets/players
+    -different types of AI prioritize targets
+
+   
+
+
+-create a harvesting system
+    -weapon damage type for different resource collection amount
+
+
+
+DamageCalculationTypes for different damage types
+        -slash
+        -pierce
+        -blunt
+        -all the magic ones
+    -dodge/block/parry/etc
+
+
+GUI -basic one first- inventory & character system/ main menu/ some wiki to access? / options&settings/ friends&party&communication/ 
+
+    -should show player inventory Data assets initially
+        -user interface kit should work?
+    -should have a player character system to equip items
+        -equip button for temporary use
+            -equips to specific slot automatically
+    -drag and drop functionaliy is the worst but necessary i think
+        -On drop either equip or unequip item from player
+
+
+
+Animations to get
+
+Dekker for leap/ throw / 
+        
+Aurora:        Ice/ one handed melee/ dash forward/ spellcaster
+Boris:      is a bear, no notes on him yet
+Countess:   -dual dagger/swords
+Crunch:     punches
+Dekker:     -staff projectile? / directional leap / 
+Drongo - Single pisol
+       - Grenade throwing
+Feng Mao:   spear user
+Gadget:     caster
+Gideon:     hardcore caster
+GreySTone:  melee sword/shield / leap ability
+Grim.exe:   - two handed chain gun thingy
+Grux:       -dual swords/ leap/ melee animatinos
+Howitzer       -hand cannon
+Iggy and Scorch:    creepy minion thingy
+Kallari:     -dual daggers / thrown weapons
+Khaimera:   dual axes / lots of melee / leap forward
+Kwang       -two handed sword / whirlwind
+Lt Belica:  -assualt rifle
+Minions:
+Morigesh:   -dagger spellcaster creeper
+Murdock:    -assualt rifle
+Muriel:     heals and spellcasting
+Narbash:    dual wield melee / drums / throwing
+Phase:      pure caster
+Rampage:    punches/leap/ throw boulder
+Revenant:   single shot revolver / throwing animation / spell caster
+Riktor:     -whip or something
+Serath:     -one handed melee
+Sevarog:    -two handed melee  / has a dash / pbaoe effect
+SHinbi:     -dagger/summon/ has a dash!
+SParrow:    -bow
+Steel:      -melee  && shield
+Terra:      -axe and shield
+TheFey:     -caster/ throwing
+Twinblast:  -dual pistols
+Wraith: Rifle
+Wukong:     -staff obvi
+Yin:        -whip and magic
+Zinx:       -single shot pistol/ charge pistol / 
+
+Terra: sword and shield
+
+    -Weapons
+        -WeaponName1            These are only created if custom calculations or values are used. try to use globals as often as possible
+            -BP_ItemPickup      physical manifestation of item(has drop info)
+            -GA_ItemAbility     name and linkage
+            -GE_ItemEffect      ex. -slashing + bleed + poison 
+            -GE_PassiveAbility  
+            -ItemData           container for holding all the information
+            -ItemValue          GE that stores the value of the item if sold/scrapped
+            -EnergyCost         if custom
+            -Cooldown           if custom
+            -statIncrease       how do we do this?
+            -OnHitEffects
+                -particle and sound
+            -OnUseEffects
+                -particle and sound
+            -MeshInfo   
+                -SkeletalMesh
+                -Materials
+                
+        -WeaponName2...
+                    
+    -Equipment  
+        -Head
+            -Same as the weapons(abilities are MOSTLY passive)
+        -Chest
+        -Belt
+        -Boots
+        -etc...
+    -consumables
+        -potions
+            -TierList
+                -should use a datatable for values
+                -individualized for whatever stat is being modified
+    SpellSystem
+        -ActiveSpells       NotBuiltYet
+        -PassiveSpells
+            -auras and things like this.               
+                
+    MovementAbilities
+        -dash
+        -dodge/roll
+        -jump
+        
+     
+
+Ability ==  AbilityType     + DamageType    + EffectType    + StatModifier(if applicable)
+Slashing == AbilityType.Damage + DamageType.Physical.Slashing + EfectType.Instant              
+Bleeding == AbilityType.Damage + DamageType.Physical.Slashing + EffectType.OverTime
+Stun == AbilityType.Damage      +DamageType.Physical.Impact   + EffectType.Instant + StatModifier(MoveSPeed)
+

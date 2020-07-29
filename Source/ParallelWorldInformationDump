@@ -1,0 +1,264 @@
+status effects
+	-instant/over time
+	-attribute increase/decrease
+	-loss of character
+
+target types
+	[x]]trace
+	-projectile
+	[x]pbaoe
+	-targeted aoe
+    [x] Frontal cone(more like a sphere currently...)
+
+
+basic melee weapons
+	-animations to play
+	-skills to use
+	-energy/mana consumption
+	-over time effects and application chance
+
+
+function for applying to active/passive/abilities
+	-active abilities(weapons and basic inventory)
+	-passive abilities(stats and auras)
+	-currently active item
+
+
+
+
+
+Currency System
+	-warframe has a great one
+	-so does POE
+Comparison between the two
+	-Warframe is grindy and has a lot of variations on whats needed
+	-POE, everything is needed, depending on what you want to do...
+	-figure out both?
+
+
+
+movement class very important
+	dodge/roll/jump/vault/etc.
+	slow  && stun should affect character rotation and movement
+
+
+create damage execution classes for each type of damage; finalize the list asap
+-phsical class
+	-impact/blunt
+		-stun status effect
+	-pierce
+		-armor penetration
+	-slash
+		-bleed DoT
+-Mental/Magical
+	-psychic/chaos/dark
+	-poison(should this be physical?)
+	-fire/explosive
+	-gas/magnetic/radiation/viral
+	-water/ice
+	-earth/nature
+	-air/lightning
+
+
+
+build base weapon
+	[x]apply status effects to target
+	-calculate damage properly //ongoing
+		-specific on what kind of damage is being dealt
+	-gameplayCue for vfx(can we do more with it?)
+
+
+	-mental/magical
+		-psychic
+
+		-chaos/dark/poison
+		-true
+		-fire/explosive
+		-gas / magnetic	/radiation / viral
+
+		-water/ice
+		-earth/nature
+		-air/lightning
+
+
+
+
+/* Attributes */
+physical 
+	[x]-strength   -physical damage /life /block amount /WHAT'S NEW PRIME ACCESS BUILD NOTES
+	[x]-dexterity 	-physical accuracy/dodge /evade / block
+	[x]-endurance 	damage resistance/energy regen
+mental 
+	[x]-strength		-mental damage /life
+	[x]-dexterity	-mental accuracy / dodge /evade/block
+	[x]-endurance 	-damage resistance / energy(mana) regen
+
+
+[x]life 			-once this reaches zero you are unconcious and will probably die	
+[ ]touchness - basically physical energy shield, both are independant of life, but take damage from the respective areas
+[ ]- energy shield	-once this is zero you start taking life damage
+
+[x]- energy   physical resource
+[x]- mana     mental/magic resource
+
+
+
+
+/*Defense stats*/
+
+armor			**if we give types, we can cluster these values based on level or something
+	-impact
+	-pierce
+	-slash
+	-elemental values too
+
+Dodge/block/parry/etc	
+	
+
+/*Offensive stats */
+
+	/*for both physical/mental attributes*/
+
+base Damage 	equipment flat damage +  strength + (equipment stats + spell stats) ) * (equipment multipliers + spell multipliers)
+crit chance		equipment flat damage +  dexterity + (equipment stats + spell stats) ) * (equipment multipliers + spell multipliers)
+crit Damage 	equipment base + dexterity + strength  * multipliers
+attack speed 	(weapon base + (strength + dexterity) + (equipment stats + spell stats) ) * (equipment multipliers + spell multipliers)
+range			equipment / spell based
+damage falloff	equipment / spell based
+accuracy		random RNG based on dice? 
+status chance	entirely equipment based 
+armor penetration equipment based
+
+
+
+target attack
+	-hitscane
+	-projectile
+	-pbaoe
+	-targeted aoe
+	-channeled
+
+instant/over time -- effect
+	-damage
+	-status effects
+chance effects
+	-status or % to blind etc.
+
+
+damage calculation can be individualized
+	should attributes be clustered
+
+update weapon swing and how it applies the GameplayEffect to enemies
+
+
+
+
+
+/* status effects */   
+	/*TODO: currently they are always applied, add a status chance otherwise its annoying and not fun see if we can apply the gameplay tag based on a percentage chance
+
+	[x] instant // dot/hot 
+
+	[ ] some stat adjustment(lower strength/dex/whatever)
+		-same for increases
+			-slow / snare / stun /knockback are all the same, just with duration and animation played being different
+
+			-blind(no attacks) - decrease physical dex to zero
+			-silenced(no spells)-decrease mental dex to zero
+			 -speed boost/decrease  //temporary and indefinite
+
+
+	[ ] loss of control of character(possessed by AI)
+		-MIND CONTROL
+		-FEAR
+		-DOMINATE
+	   -stun(no actions)
+	   -knockdown/knockback/etc
+
+	[ ] cleanse ongoing effects
+
+	[ ] summon/banish creature/turret/trap/whatever
+
+
+/*Attack Types*/
+	PBAOE
+		-aura effects
+		-m.prime is interesting because it slowly grows from the original location...
+	Targeted AOE 
+		-hydroid tentacles
+	Single trace - we can do a lot with traces
+		-any weapon swing
+		-typical bullet system
+	Projectile Spawn
+		-grenade launcher type stuff
+
+
+
+/* Damage calculation */
+	-Create a custom calculation class for the weapons-
+	roll to see if we hit
+
+		flat damage type(physical/elemental/psychic/whatever)
+		get items and add modifiers
+		convert damage to elemental damage if allowed
+		crit strike chance
+			-increase damage by crit strike multiplier
+		check dodge/evade/block/ignore
+			-check incoming damage conversion
+		deal with armor penetration
+		deal final damage		
+	on miss(or critical fail)
+		-take self damage?
+		-downside to weapon
+
+
+
+
+-spawn inventory multiplayer ready
+	-boo networking
+-store inventory online
+	-boo online subsystems
+-ui system
+	-boo UI systems
+
+-movement system
+
+
+crafting system
+	-scrapping items
+	-crafting items
+	-researching items?
+
+
+-build system
+	-build a base or something
+	-use rescources
+	-use ability system for rescources
+	-building requires 'x' rescources
+
+
+
+-quest system
+	-quest givers/actions/procedural 
+
+
+item gate system
+	-drop chance
+	-item type
+	-farming/mining/fishing
+
+
+movement
+	-fluid and dynamic
+	-not interupted by animation montages
+	-looks good
+	-easy to use/update/modify on the fly
+	-jump 
+	-crouch?
+	-slide?
+	-roll
+
+
+
+showdebug abilitysystem
+
