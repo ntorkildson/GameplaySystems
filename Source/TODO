@@ -24,7 +24,7 @@ MOVE EVERYTHING INTO A PLUGIN OR MOVE EVERYTHING OUT..STOP BEING AN IDIOT
     -erosion
     -wind
  
--boids(?)
+-boids(?) / flocking algorithms
 
 -markov chains
     -ngrams
