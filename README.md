@@ -1,5 +1,5 @@
 Into the Spiderverse is one of the most breathtaking films I have seen in a while. From the way it is animated to the shaders and effects they used, they crafted a living embodiment of the comic book world. One of the aspects of this film, that I am going to try to recreate in UE4 as a proof of concept, is the Ben Day dots. We will have dots while things are illuminated, and a crosshatching effect when things are in shadow. You can see these effects in the following image:
-https://i.pinimg.com/originals/da/b5/e8/dab5e83a65a59de0932988790ffe95cb.jpg
+![Into the Spiderverse](https://i.pinimg.com/originals/da/b5/e8/dab5e83a65a59de0932988790ffe95cb.jpg)
 
 
 Ben Day vs halftone differences vs Pointillism 
